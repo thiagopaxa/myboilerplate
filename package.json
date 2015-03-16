@@ -1,0 +1,30 @@
+{
+  "name": "myboilerplate",
+  "version": "1.0.0",
+  "description": "An experimental boiler plate created out of HTML5 Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagopaxa/myboilerplate.git"
+  },
+  "keywords": [
+    "myboilerplate",
+    "boilerplate",
+    "html5"
+  ],
+  "author": "Thiago Paixão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagopaxa/myboilerplate/issues"
+  },
+  "homepage": "https://github.com/thiagopaxa/myboilerplate",
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jasmine": "^0.8.2",
+    "grunt-contrib-stylus": "^0.21.0",
+    "grunt-contrib-uglify": "^0.8.0"
+  }
+}

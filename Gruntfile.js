@@ -35,6 +35,41 @@ var grunt = function(grunt) {
         }
       }
     },
+    imagemin: {
+      png: {
+         options: {
+            optimizationLevel: 5
+         },
+         files: [{
+            expand: true,
+            cwd: 'assets/img/',
+            src: ['**/*.png'],
+            dest: 'build/img/'
+         }]
+      },
+      jpg: {
+         options: {
+            progressive: true
+         },
+         files: [{
+            expand: true,
+            cwd: 'assets/img/',
+            src: ['**/*.jpg','**/*.jpeg'],
+            dest: 'build/img/'
+         }]
+      },
+      gif: {
+         options: {
+            interlaced: false
+         },
+         files: [{
+            expand: true,
+            cwd: 'assets/img/',
+            src: ['**/*.gif'],
+            dest: 'build/img/'
+         }]
+      }
+    },
     watch: {
       scripts: {
         files: '<%= uglify.build.src %>',
@@ -51,42 +86,13 @@ var grunt = function(grunt) {
         }
       },
       images: {
-        files: 'assets/img/**/*.{png,jpg,gif}',
-        tasks: ['imagemin'],
+        files: 'assets/img/**/*',
+        tasks: ['newer:imagemin'],
         options: {
           spawn: false
         }
       }
       
-    },
-    imagemin: {
-      png: {
-        options: {
-          optimizationLevel: 7
-        },
-        options: {
-          cache: false
-        },
-      },
-      files: [{
-        // Set to true to enable the following options…
-        expand: true,
-        // cwd is 'current working directory'
-        cwd: 'build/img/',
-        src: ['assets/img/**/*.png'],
-        // Could also match cwd line above. i.e. project-directory/img/
-        dest: 'build/img/',
-        ext: '.png'
-      }]
-
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'build/img/',
-          src: ['assets/img/**/*.{png,jpg,gif}'],
-          dest: 'build/img/'
-        }]
-      }
     }
   });
 
@@ -96,6 +102,7 @@ var grunt = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-newer');
   grunt.registerTask('default', ['watch']);
 };
 

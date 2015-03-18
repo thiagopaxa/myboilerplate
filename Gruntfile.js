@@ -3,6 +3,7 @@ var grunt = function(grunt) {
   var jsPathArray = ['assets/js/custom/main.js'];
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    // minify scripts
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -12,6 +13,7 @@ var grunt = function(grunt) {
         dest: 'build/js/main.min.js'
       }
     },
+    //test scripts
     jasmine: {
       pivotal: {
         src: jsPathArray,
@@ -21,6 +23,7 @@ var grunt = function(grunt) {
         }
       }
     },
+    // stylus - css pre processor
     stylus: {
       compile: {
         options: {
@@ -35,6 +38,7 @@ var grunt = function(grunt) {
         }
       }
     },
+    // image minifier
     imagemin: {
       png: {
          options: {
@@ -70,6 +74,15 @@ var grunt = function(grunt) {
          }]
       }
     },
+    jshint:{
+      all:{
+        src: jsPathArray,
+        options: {
+          jshintrc: '.jshintrc'
+        }
+      }
+    },
+    // listen to changes 
     watch: {
       scripts: {
         files: '<%= uglify.build.src %>',
@@ -92,7 +105,6 @@ var grunt = function(grunt) {
           spawn: false
         }
       }
-      
     }
   });
 
@@ -102,8 +114,11 @@ var grunt = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-newer');
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['stylus','jshint','uglify','newer:imagemin','watch']);
+  grunt.registerTask('test', ['jasmine']);
+  grunt.registerTask('js', ['jshint']);
 };
 
 module.exports = grunt;

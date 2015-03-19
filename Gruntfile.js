@@ -28,13 +28,21 @@ var grunt = function(grunt) {
       compile: {
         options: {
           banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-          compress: true,
+          compress: false,
           import: [
             'nib/*'
           ]
         },
         files: {
-          'build/style/style.min.css': stylusPathArray
+          'build/style/style.css': stylusPathArray
+        }
+      }
+    },
+    // css minifier --> cause the stylus task would leave the .css with /*! comments
+    cssmin: {
+      build: {
+        files: {
+          'build/style/style.min.css': ['build/style/style.css']
         }
       }
     },
@@ -98,6 +106,13 @@ var grunt = function(grunt) {
           spawn: false
         }
       },
+      stylemin: {
+        files: ['build/style/style.css'],
+        tasks: ['cssmin'],
+        options: {
+          spawn: false
+        }
+      },
       images: {
         files: 'assets/img/**/*',
         tasks: ['newer:imagemin'],
@@ -115,10 +130,10 @@ var grunt = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-newer');
-  grunt.registerTask('default', ['stylus','jshint','uglify','newer:imagemin','watch']);
-  grunt.registerTask('test', ['jasmine']);
-  grunt.registerTask('js', ['jshint']);
+  grunt.registerTask('default', ['newer:stylus','newer:cssmin','newer:uglify','newer:imagemin','watch']);
+  grunt.registerTask('test', ['jshint','jasmine']);
 };
 
 module.exports = grunt;

@@ -19,7 +19,12 @@ var grunt = function(grunt) {
         src: jsPathArray,
         options: {
           specs: 'assets/specs/*Spec.js',
-          helpers: 'assets/specs/*Helper.js'
+          helpers: 'assets/specs/*Helper.js',
+          template : require('grunt-template-jasmine-istanbul'),
+            templateOptions: {
+            coverage: 'reports/coverage.json',
+            report: 'reports/coverage'
+          }
         }
       }
     },

@@ -18,12 +18,12 @@ var grunt = function(grunt) {
       pivotal: {
         src: jsPathArray,
         options: {
-          specs: 'assets/specs/*Spec.js',
-          helpers: 'assets/specs/*Helper.js',
+          specs: 'tests/jasmine/*Spec.js',
+          helpers: 'tests/jasmine/*Helper.js',
           template : require('grunt-template-jasmine-istanbul'),
             templateOptions: {
-            coverage: 'reports/coverage.json',
-            report: 'reports/coverage'
+            coverage: 'tests/reports/coverage.json',
+            report: 'tests/reports/coverage'
           }
         }
       }

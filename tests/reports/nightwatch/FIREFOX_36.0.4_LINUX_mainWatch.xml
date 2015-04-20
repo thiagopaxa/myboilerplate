@@ -5,9 +5,9 @@
 
   <testsuite name="mainWatch"
     errors="0" failures="0" hostname="" id="" package="mainWatch" skipped="0"
-    tests="1" time="3.708" timestamp="Mon, 20 Apr 2015 14:40:10 GMT">
+    tests="1" time="3.614" timestamp="Mon, 20 Apr 2015 18:55:27 GMT">
   
-    <testcase name="Demo test local" time="3.708" assertions="2">
+    <testcase name="Demo test local" time="3.614" assertions="2">
 
     
 

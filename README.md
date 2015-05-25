@@ -24,7 +24,7 @@ You need [NPM](https://nodejs.org/) to run the Grunt taks.
   $ npm i # install npm local packages
 ```
 
-## Grunt Taks
+## Grunt Tasks
 ```bash
   $ grunt
 ```

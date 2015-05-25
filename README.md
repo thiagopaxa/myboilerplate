@@ -13,6 +13,8 @@ I have Customized it to quickly start any small projects with some usefull tools
 * -- [Cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
 * -- [Uglify](https://github.com/gruntjs/grunt-contrib-uglify)
 * [JQuery](http://jquery.com/)
+* [Backbone](http://backbonejs.org/)
+* [Underscore](http://underscorejs.org/)
 
 ## Dependencies
 
@@ -24,7 +26,7 @@ You need [NPM](https://nodejs.org/) to run the Grunt taks.
   $ npm i # install npm local packages
 ```
 
-## Grunt Taks
+## Grunt Tasks
 ```bash
   $ grunt
 ```

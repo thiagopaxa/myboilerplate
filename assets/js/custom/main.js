@@ -1,2 +1,1 @@
-var teste = true;
-console.log(teste);
+window.MyApp = {};

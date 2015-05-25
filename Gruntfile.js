@@ -1,8 +1,16 @@
 var grunt = function(grunt) {
   'use strict';
   var stylusPathArray = ['assets/style/main.styl', 'assets/style/custom/**/*.styl'];
-  var jsPathArray = ['assets/js/custom/main.js'];
-  var npmTasks = ['grunt-contrib-uglify',
+  var jsPathArray     = [
+    'assets/js/custom/main.js',
+    'assets/js/helpers/**/*.js',
+    'assets/js/models/**/*.js',
+    'assets/js/collections/**/*.js',
+    'assets/js/views/**/*.js',
+    'assets/js/modules/**/*.js'
+  ];
+  var npmTasks        = [
+    'grunt-contrib-uglify',
     'grunt-contrib-stylus',
     'grunt-contrib-jasmine',
     'grunt-contrib-watch',

@@ -55,10 +55,16 @@
   "node": true,
 
   "globals": {
-    "MyApp": true,
     "_": true,
+    "$": true,
     "Backbone": true,
+
+    "it": true,
+    "describe": true,
+    "xit": true,
+    "expect": true,
     "console": true,
-    "$": true
+    
+    "MyApp": true
   }
 }

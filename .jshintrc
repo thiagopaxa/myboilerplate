@@ -55,7 +55,7 @@
   "node": true,
 
   "globals": {
-    "Application": true,
+    "MyApp": true,
     "_": true,
     "Backbone": true,
     "console": true,

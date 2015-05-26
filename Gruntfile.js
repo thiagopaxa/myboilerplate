@@ -1,15 +1,15 @@
 var grunt = function(grunt) {
   'use strict';
   var stylusPathArray = ['assets/style/main.styl', 'assets/style/custom/**/*.styl'];
-  var jsPathArray     = [
+  var jsPathArray = [
     'assets/js/custom/main.js',
-    'assets/js/helpers/**/*.js',
-    'assets/js/models/**/*.js',
-    'assets/js/collections/**/*.js',
-    'assets/js/views/**/*.js',
-    'assets/js/modules/**/*.js'
+    'assets/js/custom/helpers/**/*.js',
+    'assets/js/custom/models/**/*.js',
+    'assets/js/custom/collections/**/*.js',
+    'assets/js/custom/views/**/*.js',
+    'assets/js/custom/modules/**/*.js'
   ];
-  var npmTasks        = [
+  var npmTasks = [
     'grunt-contrib-uglify',
     'grunt-contrib-stylus',
     'grunt-contrib-jasmine',
@@ -113,7 +113,7 @@ var grunt = function(grunt) {
         }
       }
     },
-    // listen to changes 
+    // listen to changes
     watch: {
       scripts: {
         files: '<%= uglify.build.src %>',
@@ -149,7 +149,7 @@ var grunt = function(grunt) {
   for (var ind = 0; ind < npmTasks.length; ind++) {
     grunt.loadNpmTasks(npmTasks[ind]); // register all npm tasks
   }
-  
+
   grunt.registerTask('default',
     [
       'newer:stylus',

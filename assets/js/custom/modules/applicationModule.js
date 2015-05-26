@@ -1,0 +1,1 @@
+MyApp.someModel = new MyApp.Models.Example({ name: 'something' },{ validate: true });

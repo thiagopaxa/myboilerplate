@@ -1,6 +1,12 @@
 var grunt = function(grunt) {
   'use strict';
   var stylusPathArray = ['assets/style/main.styl', 'assets/style/custom/**/*.styl'];
+  var vendorPathArray = [
+    'assets/js/vendor/modernizr-2.8.3.min.js',
+    'assets/js/vendor/jquery-1.11.2.min.js',
+    'assets/js/vendor/underscore-min.js',
+    'assets/js/vendor/backbone-min.js'
+  ];
   var jsPathArray = [
     'assets/js/custom/main.js',
     'assets/js/custom/helpers/**/*.js',
@@ -9,6 +15,7 @@ var grunt = function(grunt) {
     'assets/js/custom/views/**/*.js',
     'assets/js/custom/modules/**/*.js'
   ];
+  var allScriptsArray = vendorPathArray.concat(jsPathArray);
   var npmTasks = [
     'grunt-contrib-uglify',
     'grunt-contrib-stylus',
@@ -34,7 +41,7 @@ var grunt = function(grunt) {
     //test scripts
     jasmine: {
       pivotal: {
-        src: jsPathArray,
+        src: allScriptsArray,
         options: {
           specs: 'assets/specs/*Spec.js',
           helpers: 'assets/specs/*Helper.js',

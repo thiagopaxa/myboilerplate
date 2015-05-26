@@ -63,8 +63,7 @@
     "describe": true,
     "xit": true,
     "expect": true,
-    "console": true,
-    
+
     "MyApp": true
   }
 }

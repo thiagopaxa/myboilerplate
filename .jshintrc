@@ -7,7 +7,7 @@
   "forin": true,
   "freeze": true,
   "immed": true,
-  "indent": 6,
+  "indent": 2,
   "latedef": true,
   "newcap": true,
   "noarg": true,
@@ -57,8 +57,14 @@
   "globals": {
     "App": true,
     "_": true,
+    "$": true,
     "Backbone": true,
-    "console": true,
-    "$": true
+
+    "it": true,
+    "describe": true,
+    "xit": true,
+    "expect": true,
+
+    "MyApp": true
   }
 }

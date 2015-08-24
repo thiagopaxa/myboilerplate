@@ -4,3 +4,6 @@
 **/node_modules
 reports/
 **.orig
+build/img/*
+build/js/*
+build/style/*

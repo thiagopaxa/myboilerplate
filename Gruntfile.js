@@ -105,7 +105,7 @@ var grunt = function(grunt) {
         }
       }
     },
-    // listen to changes 
+    // listen to changes
     watch: {
       scripts: {
         files: '<%= uglify.build.src %>',
@@ -141,14 +141,13 @@ var grunt = function(grunt) {
   for (var ind = 0; ind < npmTasks.length; ind++) {
     grunt.loadNpmTasks(npmTasks[ind]); // register all npm tasks
   }
-  
+
   grunt.registerTask('default',
     [
       'newer:stylus',
       'newer:cssmin',
       'newer:uglify',
-      'newer:imagemin',
-      'watch'
+      'newer:imagemin'
     ]
   );
 

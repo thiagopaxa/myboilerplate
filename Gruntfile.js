@@ -162,8 +162,7 @@ var grunt = function(grunt) {
       'newer:stylus',
       'newer:cssmin',
       'newer:uglify',
-      'newer:imagemin',
-      'watch'
+      'newer:imagemin'
     ]
   );
 

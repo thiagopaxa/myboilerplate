@@ -18,7 +18,7 @@ I have Customized it to quickly start any small projects with some usefull tools
 
 You need [NPM](https://nodejs.org/) to run the Grunt taks.
 
-* Install npm packages 
+* Install npm packages
 
 ```bash
   $ npm i # install npm local packages
@@ -26,7 +26,8 @@ You need [NPM](https://nodejs.org/) to run the Grunt taks.
 
 ## Grunt Tasks
 ```bash
-  $ grunt
+  $ grunt # builds the assets one time
+  $ grunt watch # builds the assets while you work
 ```
 
   This will run almost everything and then watch changes in the /assets dir.

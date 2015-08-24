@@ -1,6 +1,16 @@
 var grunt = function(grunt) {
+  'use strict';
   var stylusPathArray = ['assets/style/main.styl', 'assets/style/custom/**/*.styl'];
   var jsPathArray = ['assets/js/custom/main.js'];
+  var npmTasks = ['grunt-contrib-uglify',
+    'grunt-contrib-stylus',
+    'grunt-contrib-jasmine',
+    'grunt-contrib-watch',
+    'grunt-contrib-imagemin',
+    'grunt-contrib-jshint',
+    'grunt-contrib-cssmin',
+    'grunt-newer'
+  ];
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     // minify scripts
@@ -95,7 +105,7 @@ var grunt = function(grunt) {
         }
       }
     },
-    // listen to changes 
+    // listen to changes
     watch: {
       scripts: {
         files: '<%= uglify.build.src %>',
@@ -128,17 +138,21 @@ var grunt = function(grunt) {
     }
   });
 
+  for (var ind = 0; ind < npmTasks.length; ind++) {
+    grunt.loadNpmTasks(npmTasks[ind]); // register all npm tasks
+  }
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-stylus');
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-newer');
-  grunt.registerTask('default', ['newer:stylus','newer:cssmin','newer:uglify','newer:imagemin','watch']);
+  grunt.registerTask('default',
+    [
+      'newer:stylus',
+      'newer:cssmin',
+      'newer:uglify',
+      'newer:imagemin'
+    ]
+  );
+
   grunt.registerTask('test', ['jshint','jasmine']);
+
 };
 
 module.exports = grunt;

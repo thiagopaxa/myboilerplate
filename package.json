@@ -4,7 +4,7 @@
   "description": "An experimental boilerplate created out of HTML5 Boilerplate",
   "main": "index.js",
   "scripts": {
-    "postinstall": "grunt",
+    "postinstall": "npm i -g grunt-cli && grunt",
     "test": "grunt test"
   },
   "repository": {
